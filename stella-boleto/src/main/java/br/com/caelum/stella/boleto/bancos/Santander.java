@@ -52,7 +52,7 @@ public class Santander extends AbstractBanco {
 	@Override
 	public String getNossoNumeroFormatado(Beneficiario beneficiario) {
 		String nossoNumero = beneficiario.getNossoNumero();
-		if (beneficiario.getDigitoNossoNumero() != null) {
+		if (beneficiario.getDigitoNossoNumero() != null && beneficiario.getDigitoNossoNumero().isNotEmpty() ) {
 			return leftPadWithZeros(nossoNumero+beneficiario.getDigitoNossoNumero(), 13);
 		} 
 		return leftPadWithZeros(nossoNumero+getGeradorDeDigito().calculaDVNossoNumero(nossoNumero), 13);
